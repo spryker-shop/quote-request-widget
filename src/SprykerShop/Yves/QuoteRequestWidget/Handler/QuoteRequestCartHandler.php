@@ -37,11 +37,6 @@ class QuoteRequestCartHandler implements QuoteRequestCartHandlerInterface
      */
     protected $companyUserClient;
 
-    /**
-     * @param \SprykerShop\Yves\QuoteRequestWidget\Dependency\Client\QuoteRequestWidgetToQuoteClientInterface $quoteClient
-     * @param \SprykerShop\Yves\QuoteRequestWidget\Dependency\Client\QuoteRequestWidgetToQuoteRequestClientInterface $quoteRequestClient
-     * @param \SprykerShop\Yves\QuoteRequestWidget\Dependency\Client\QuoteRequestWidgetToCompanyUserClientInterface $companyUserClient
-     */
     public function __construct(
         QuoteRequestWidgetToQuoteClientInterface $quoteClient,
         QuoteRequestWidgetToQuoteRequestClientInterface $quoteRequestClient,
@@ -87,9 +82,6 @@ class QuoteRequestCartHandler implements QuoteRequestCartHandlerInterface
         return $this->quoteRequestClient->updateQuoteRequest($quoteRequestTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     protected function getErrorResponse(): QuoteRequestResponseTransfer
     {
         return (new QuoteRequestResponseTransfer())

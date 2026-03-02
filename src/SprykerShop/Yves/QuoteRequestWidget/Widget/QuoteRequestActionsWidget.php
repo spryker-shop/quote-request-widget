@@ -25,37 +25,22 @@ class QuoteRequestActionsWidget extends AbstractWidget
      */
     protected const PARAMETER_BACK_URL = 'backUrl';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $backUrl
-     */
     public function __construct(QuoteTransfer $quoteTransfer, string $backUrl)
     {
         $this->addIsVisibleParameter($quoteTransfer);
         $this->addBackUrlParameter($backUrl);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'QuoteRequestActionsWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@QuoteRequestWidget/views/quote-request-checkout/quote-request-checkout.twig';
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addIsVisibleParameter(QuoteTransfer $quoteTransfer): void
     {
         $this->addParameter(
@@ -64,11 +49,6 @@ class QuoteRequestActionsWidget extends AbstractWidget
         );
     }
 
-    /**
-     * @param string $backUrl
-     *
-     * @return void
-     */
     protected function addBackUrlParameter(string $backUrl): void
     {
         $this->addParameter(static::PARAMETER_BACK_URL, $backUrl);

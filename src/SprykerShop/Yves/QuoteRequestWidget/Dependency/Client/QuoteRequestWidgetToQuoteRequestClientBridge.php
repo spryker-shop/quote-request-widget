@@ -27,61 +27,31 @@ class QuoteRequestWidgetToQuoteRequestClientBridge implements QuoteRequestWidget
         $this->quoteRequestClient = $quoteRequestClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function isQuoteApplicableForQuoteRequest(QuoteTransfer $quoteTransfer): bool
     {
         return $this->quoteRequestClient->isQuoteApplicableForQuoteRequest($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return bool
-     */
     public function isQuoteRequestEditable(QuoteRequestTransfer $quoteRequestTransfer): bool
     {
         return $this->quoteRequestClient->isQuoteRequestEditable($quoteRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     public function updateQuoteRequest(QuoteRequestTransfer $quoteRequestTransfer): QuoteRequestResponseTransfer
     {
         return $this->quoteRequestClient->updateQuoteRequest($quoteRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestFilterTransfer $quoteRequestFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     public function getQuoteRequest(QuoteRequestFilterTransfer $quoteRequestFilterTransfer): QuoteRequestResponseTransfer
     {
         return $this->quoteRequestClient->getQuoteRequest($quoteRequestFilterTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return bool
-     */
     public function isQuoteRequestCancelable(QuoteRequestTransfer $quoteRequestTransfer): bool
     {
         return $this->quoteRequestClient->isQuoteRequestCancelable($quoteRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function isEditableQuoteRequestVersion(QuoteTransfer $quoteTransfer): bool
     {
         return $this->quoteRequestClient->isEditableQuoteRequestVersion($quoteTransfer);

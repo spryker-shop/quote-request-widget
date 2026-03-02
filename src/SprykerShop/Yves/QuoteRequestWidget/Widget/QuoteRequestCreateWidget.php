@@ -20,35 +20,21 @@ class QuoteRequestCreateWidget extends AbstractWidget
      */
     protected const PARAMETER_IS_VISIBLE = 'isVisible';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     */
     public function __construct(QuoteTransfer $quoteTransfer)
     {
         $this->addIsVisibleParameter($quoteTransfer);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'QuoteRequestCreateWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@QuoteRequestWidget/views/quote-request-create/quote-request-create.twig';
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addIsVisibleParameter(QuoteTransfer $quoteTransfer): void
     {
         $isVisible = $this->getFactory()

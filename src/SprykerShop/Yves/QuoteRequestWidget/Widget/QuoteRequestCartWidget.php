@@ -25,54 +25,32 @@ class QuoteRequestCartWidget extends AbstractWidget
      */
     protected const PARAMETER_FORM = 'form';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     */
     public function __construct(QuoteTransfer $quoteTransfer)
     {
         $this->addIsVisibleParameter($quoteTransfer);
         $this->addFormParameter();
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'QuoteRequestCartWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@QuoteRequestWidget/views/quote-request-update/quote-request-update.twig';
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addIsVisibleParameter(QuoteTransfer $quoteTransfer): void
     {
         $this->addParameter(static::PARAMETER_IS_VISIBLE, $this->isWidgetVisible($quoteTransfer));
     }
 
-    /**
-     * @return void
-     */
     protected function addFormParameter(): void
     {
         $this->addParameter(static::PARAMETER_FORM, $this->getFactory()->getQuoteRequestCartForm()->createView());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isWidgetVisible(QuoteTransfer $quoteTransfer): bool
     {
         return $this->getFactory()->getQuoteRequestClient()->isEditableQuoteRequestVersion($quoteTransfer);

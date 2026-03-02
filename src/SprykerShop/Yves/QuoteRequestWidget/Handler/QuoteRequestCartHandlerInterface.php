@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\QuoteRequestResponseTransfer;
 
 interface QuoteRequestCartHandlerInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     public function updateQuoteRequestQuote(): QuoteRequestResponseTransfer;
 }

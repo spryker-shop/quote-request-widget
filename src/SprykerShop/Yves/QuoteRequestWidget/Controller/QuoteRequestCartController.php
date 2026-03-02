@@ -42,11 +42,6 @@ class QuoteRequestCartController extends AbstractController
      */
     protected const PARAM_QUOTE_REQUEST_REFERENCE = 'quoteRequestReference';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function saveAction(Request $request): RedirectResponse
     {
         $response = $this->executeSaveAction($request);
@@ -54,9 +49,6 @@ class QuoteRequestCartController extends AbstractController
         return $response;
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function clearAction(): RedirectResponse
     {
         $response = $this->executeClearAction();
@@ -64,11 +56,6 @@ class QuoteRequestCartController extends AbstractController
         return $response;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function executeSaveAction(Request $request): RedirectResponse
     {
         $quoteRequestResponseTransfer = $this->getFactory()
@@ -95,9 +82,6 @@ class QuoteRequestCartController extends AbstractController
         return $this->redirectResponseInternal(static::ROUTE_CART);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function executeClearAction(): RedirectResponse
     {
         $quoteTransfer = $this->getFactory()->getQuoteClient()->getQuote();
@@ -113,9 +97,6 @@ class QuoteRequestCartController extends AbstractController
         ]);
     }
 
-    /**
-     * @return void
-     */
     protected function reloadQuoteForCustomer(): void
     {
         $customerTransfer = $this->getFactory()->getCustomerClient()->getCustomer();
@@ -129,11 +110,6 @@ class QuoteRequestCartController extends AbstractController
             ->reloadQuoteForCustomer($customerTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestResponseTransfer $quoteRequestResponseTransfer
-     *
-     * @return void
-     */
     protected function handleResponseErrors(QuoteRequestResponseTransfer $quoteRequestResponseTransfer): void
     {
         foreach ($quoteRequestResponseTransfer->getMessages() as $messageTransfer) {

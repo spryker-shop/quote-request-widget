@@ -29,34 +29,22 @@ class QuoteRequestMenuItemWidget extends AbstractWidget
      */
     protected const PAGE_KEY_QUOTE_REQUEST = 'quoteRequest';
 
-    /**
-     * @param string $activePage
-     */
     public function __construct(string $activePage)
     {
         $this->addIsVisibleParameter();
         $this->addIsActivePageParameter($activePage);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'QuoteRequestMenuItemWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@QuoteRequestWidget/views/quote-request-menu-item/quote-request-menu-item.twig';
     }
 
-    /**
-     * @return void
-     */
     protected function addIsVisibleParameter(): void
     {
         $this->addParameter(static::PARAMETER_IS_VISIBLE, $this->isWidgetVisible());
@@ -72,19 +60,11 @@ class QuoteRequestMenuItemWidget extends AbstractWidget
         $this->addParameter(static::PARAMETER_IS_ACTIVE_PAGE, $this->isQuoteRequestPageActive($activePage));
     }
 
-    /**
-     * @param string $activePage
-     *
-     * @return bool
-     */
     protected function isQuoteRequestPageActive(string $activePage): bool
     {
         return $activePage === static::PAGE_KEY_QUOTE_REQUEST;
     }
 
-    /**
-     * @return bool
-     */
     protected function isWidgetVisible(): bool
     {
         return (bool)$this->getFactory()
